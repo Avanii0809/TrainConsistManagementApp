@@ -1,47 +1,29 @@
-import java.util.LinkedList;
-import java.util.List;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
-public class UseCase4TrainConsistMgmt {
+public class UseCase5TrainConsistMgmt {
 
     public static void main(String[] args) {
 
         System.out.println("===========================================");
-        System.out.println("   UC4 - Maintain Ordered Bogie Consist");
+        System.out.println("   UC5 - Preserve Insertion Order of Bogies");
         System.out.println("===========================================\n");
 
-        List<String> trainConsist = new LinkedList<>();
+        Set<String> formation = new LinkedHashSet<>();
 
-        addBogie(trainConsist, "B1");
-        addBogie(trainConsist, "B2");
-        addBogie(trainConsist, "B3");
+        formation.add("B101");
+        formation.add("B102");
+        formation.add("B103");
+        formation.add("B104");
 
-        addBogie(trainConsist, "B2");
+        formation.add("B102");
+        formation.add("B103");
 
-        System.out.println("After adding bogies: " + trainConsist);
-
-        String newBogie = "B1.5";
-        if (!trainConsist.contains(newBogie)) {
-            trainConsist.add(1, newBogie);
-        }
-        System.out.println("After inserting at position 1: " + trainConsist);
-
-        if (!trainConsist.isEmpty()) {
-            trainConsist.remove(0);
+        System.out.println("Train Formation (Insertion Order Preserved):");
+        for (String bogie : formation) {
+            System.out.println(bogie);
         }
 
-        if (!trainConsist.isEmpty()) {
-            trainConsist.remove(trainConsist.size() - 1); // rear
-        }
-
-        System.out.println("After removing front & rear: " + trainConsist);
-
-        System.out.println("\nFinal Train Consist: " + trainConsist);
-    }
-    public static void addBogie(List<String> list, String bogie) {
-        if (!list.contains(bogie)) {
-            list.add(bogie);
-        } else {
-            System.out.println("Duplicate bogie " + bogie + " not added.");
-        }
+        System.out.println("\nTotal unique bogies: " + formation.size());
     }
 }
