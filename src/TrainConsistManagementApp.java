@@ -1,24 +1,34 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class UseCase1TrainConsistMgmt {
+public class UseCase2TrainConsistMgmt {
 
     public static void main(String[] args) {
 
         System.out.println("===========================================");
-        System.out.println("   Train Consist Management App");
+        System.out.println("   UC2 - Add Passenger Bogies to Train");
         System.out.println("===========================================\n");
 
-        List<String> trainConsist = new ArrayList<>();
+        List<String> passengerBogies = new ArrayList<>();
 
-        System.out.println("Train initialized successfully...");
+        passengerBogies.add("B1");
+        passengerBogies.add("B2");
+        passengerBogies.add("B3");
 
-        System.out.println("Initial number of bogies: " + trainConsist.size());
+        System.out.println("Bogies after addition: " + passengerBogies);
 
-        if (trainConsist.isEmpty()) {
-            System.out.println("Train is currently empty.");
+        String checkBogie = "B2";
+        if (passengerBogies.contains(checkBogie)) {
+            System.out.println(checkBogie + " is available in the train.");
         } else {
-            System.out.println("Train Consist: " + trainConsist);
+            System.out.println(checkBogie + " is NOT available.");
         }
+        passengerBogies.set(1, "B2-Updated");
+        System.out.println("After updating B2: " + passengerBogies);
+
+        passengerBogies.remove("B1");
+        System.out.println("After removing B1: " + passengerBogies);
+
+        System.out.println("\nFinal Train Consist: " + passengerBogies);
     }
 }
