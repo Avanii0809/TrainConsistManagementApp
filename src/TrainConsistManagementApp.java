@@ -1,29 +1,25 @@
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.HashMap;
+import java.util.Map;
 
-public class UseCase5TrainConsistMgmt {
+public class UseCase6TrainConsistMgmt {
 
     public static void main(String[] args) {
 
-        System.out.println("===========================================");
-        System.out.println("   UC5 - Preserve Insertion Order of Bogies");
-        System.out.println("===========================================\n");
+        System.out.println("======================================");
+        System.out.println("UC6 - Map Bogie to Capacity (HashMap)");
+        System.out.println("======================================\n");
 
-        Set<String> formation = new LinkedHashSet<>();
+        Map<String, Integer> capacityMap = new HashMap<>();
 
-        formation.add("B101");
-        formation.add("B102");
-        formation.add("B103");
-        formation.add("B104");
+        capacityMap.put("B1", 72);
+        capacityMap.put("B2", 68);
+        capacityMap.put("B3", 80);
+        capacityMap.put("B4", 75);
 
-        formation.add("B102");
-        formation.add("B103");
-
-        System.out.println("Train Formation (Insertion Order Preserved):");
-        for (String bogie : formation) {
-            System.out.println(bogie);
+        System.out.println("Bogie Capacity Details:");
+        for (Map.Entry<String, Integer> entry : capacityMap.entrySet()) {
+            System.out.println("Bogie: " + entry.getKey() +
+                    " -> Capacity: " + entry.getValue());
         }
-
-        System.out.println("\nTotal unique bogies: " + formation.size());
     }
 }
