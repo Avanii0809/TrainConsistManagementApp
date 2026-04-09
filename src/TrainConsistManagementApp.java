@@ -1,34 +1,29 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
-public class UseCase2TrainConsistMgmt {
+public class UseCase3TrainConsistMgmt {
 
     public static void main(String[] args) {
 
         System.out.println("===========================================");
-        System.out.println("   UC2 - Add Passenger Bogies to Train");
+        System.out.println("   UC3 - Track Unique Bogie IDs");
         System.out.println("===========================================\n");
 
-        List<String> passengerBogies = new ArrayList<>();
+        Set<String> bogies = new HashSet<>();
 
-        passengerBogies.add("B1");
-        passengerBogies.add("B2");
-        passengerBogies.add("B3");
+        bogies.add("B6101");
+        bogies.add("B6102");
+        bogies.add("B6103");
+        bogies.add("B6104");
 
-        System.out.println("Bogies after addition: " + passengerBogies);
+        bogies.add("B6101");
+        bogies.add("B6102");
 
-        String checkBogie = "B2";
-        if (passengerBogies.contains(checkBogie)) {
-            System.out.println(checkBogie + " is available in the train.");
-        } else {
-            System.out.println(checkBogie + " is NOT available.");
+        System.out.println("Unique Bogie IDs:");
+        for (String bogie : bogies) {
+            System.out.println(bogie);
         }
-        passengerBogies.set(1, "B2-Updated");
-        System.out.println("After updating B2: " + passengerBogies);
 
-        passengerBogies.remove("B1");
-        System.out.println("After removing B1: " + passengerBogies);
-
-        System.out.println("\nFinal Train Consist: " + passengerBogies);
+        System.out.println("\nTotal unique bogies: " + bogies.size());
     }
 }
